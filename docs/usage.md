@@ -21,7 +21,7 @@ The server sends a notification to the client through a WebSocket for each of th
 The command line interface offers a `listen` subcommand:
 
 ```bash
-aria2p listen -c /path/to/callbacks.py
+ceria listen -c /path/to/callbacks.py
 ```
 
 <small><em>In the future, a default path will be used for the callbacks module.</em></small>
@@ -76,9 +76,9 @@ defines all the possible callbacks, you can pass additional arguments:
 ```bash
 # let say you want to run multiple listeners:
 # one for errors, one for completions, and one for the rest
-aria2p listen -c ~/callbacks.py error &
-aria2p listen -c ~/callbacks.py complete btcomplete &
-aria2p listen -c ~/callbacks.py start pause stop &
+ceria listen -c ~/callbacks.py error &
+ceria listen -c ~/callbacks.py complete btcomplete &
+ceria listen -c ~/callbacks.py start pause stop &
 ```
 
 This is possible because the server sends the notifications to every client that is listening.
@@ -95,7 +95,7 @@ If you find the default five seconds to be too long when interrupting the proces
 you can decrease this timeout value by passing the `-t` or `--timeout` option:
 
 ```bash
-aria2p listen -c ~/callbacks.py -t 1
+ceria listen -c ~/callbacks.py -t 1
 ```
 
 ### Programmatically

@@ -92,7 +92,7 @@ class Stats:
         """
         Return the number of stopped downloads in the current session.
 
-        This value is capped by the [`--max-download-result`][aria2p.options.Options.max_download_result] option.
+        This value is capped by the [`--max-download-result`][ceria.options.Options.max_download_result] option.
 
         Returns:
             The number of stopped downloads in the current session (capped).
@@ -104,7 +104,7 @@ class Stats:
         """
         Return the number of stopped downloads in the current session.
 
-        This value is not capped by the [`--max-download-result`][aria2p.options.Options.max_download_result] option.
+        This value is not capped by the [`--max-download-result`][ceria.options.Options.max_download_result] option.
 
         Returns:
             The number of stopped downloads in the current session (not capped).

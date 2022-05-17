@@ -83,7 +83,7 @@ sudo apt-get install aria2
 With `pip`:
 
 ```bash
-python3.6 -m pip install aria2p[tui]
+python3.6 -m pip install ceria[tui]
 ```
 
 With [`pipx`](https://github.com/pipxproject/pipx):
@@ -91,7 +91,7 @@ With [`pipx`](https://github.com/pipxproject/pipx):
 ```bash
 python3.6 -m pip install --user pipx
 
-pipx install --python python3.6 aria2p[tui]
+pipx install --python python3.6 ceria[tui]
 ```
 
 The `tui` extra is needed for the interactive interface. If you don't need the interface (for example when you are

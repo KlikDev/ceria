@@ -28,7 +28,7 @@ def listen(
         int: Always 0.
     """
     if not callbacks_module:
-        print("aria2p: listen: Please provide the callback module file path with -c option", file=sys.stderr)
+        print("ceria: listen: Please provide the callback module file path with -c option", file=sys.stderr)
         return 1
 
     if isinstance(callbacks_module, Path):
@@ -40,13 +40,13 @@ def listen(
     spec = importlib_util.spec_from_file_location("aria2p_callbacks", callbacks_module)
 
     if spec is None:
-        print(f"aria2p: Could not import module file {callbacks_module}", file=sys.stderr)
+        print(f"ceria: Could not import module file {callbacks_module}", file=sys.stderr)
         return 1
 
     callbacks = importlib_util.module_from_spec(spec)
 
     if callbacks is None:
-        print(f"aria2p: Could not import module file {callbacks_module}", file=sys.stderr)
+        print(f"ceria: Could not import module file {callbacks_module}", file=sys.stderr)
         return 1
 
     spec.loader.exec_module(callbacks)  # type: ignore

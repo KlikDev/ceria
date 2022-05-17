@@ -1,5 +1,5 @@
 """
-aria2p package.
+ceria package.
 
 Command-line tool and library to interact with an aria2c daemon process with JSON-RPC.
 """
@@ -14,7 +14,7 @@ from aria2p.downloads import BitTorrent, Download, File
 from aria2p.options import Options
 from aria2p.stats import Stats
 
-logger.disable("aria2p")
+logger.disable("ceria")
 
 
 def enable_logger(sink=sys.stderr, level="WARNING"):
@@ -30,7 +30,7 @@ def enable_logger(sink=sys.stderr, level="WARNING"):
     """
     logger.remove()
     logger.configure(handlers=[{"sink": sink, "level": level}])
-    logger.enable("aria2p")
+    logger.enable("ceria")
 
 
 __all__ = [

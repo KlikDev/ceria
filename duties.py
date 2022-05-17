@@ -93,7 +93,7 @@ def bundle(ctx):
         ctx: The [context][duty.logic.Context] instance (passed automatically).
     """
     ctx.run(
-        "pyinstaller -F -n aria2p -p __pypackages__/3.8/lib src/aria2p/__main__.py",
+        "pyinstaller -F -n ceria -p __pypackages__/3.8/lib src/ceria/__main__.py",
         title="Bundling standalone executable",
         pty=PTY,
     )

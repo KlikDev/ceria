@@ -26,10 +26,10 @@ class API:
     """
     A class providing high-level methods to interact with a remote aria2c process.
 
-    This class is instantiated with a reference to a [`Client`][aria2p.client.Client] instance. It then uses this client
+    This class is instantiated with a reference to a [`Client`][ceria.client.Client] instance. It then uses this client
     to call remote procedures, or remote methods. While the client methods reflect exactly what aria2c is providing
     through JSON-RPC, this class's methods allow for easier / faster control of the remote process. It also
-    wraps the information the client retrieves in Python object, like [`Download`][aria2p.downloads.Download],
+    wraps the information the client retrieves in Python object, like [`Download`][ceria.downloads.Download],
     allowing for even more Pythonic interactions, without worrying about payloads, responses, JSON, etc..
     """
 
@@ -38,7 +38,7 @@ class API:
         Initialize the object.
 
         Arguments:
-            client: An instance of the [aria2p.client.Client][] class.
+            client: An instance of the [ceria.client.Client][] class.
         """
         self.client = client or Client()
         self.listener: Optional[threading.Thread] = None
@@ -60,7 +60,7 @@ class API:
 
         Arguments:
             uri: The URI or file-path to add.
-            options: An instance of the [`Options`][aria2p.options.Options] class or a dictionary
+            options: An instance of the [`Options`][ceria.options.Options] class or a dictionary
                 containing aria2c options to create the download with.
             position: The position where to insert the new download in the queue. Start at 0 (top).
 
@@ -102,7 +102,7 @@ class API:
 
         Arguments:
             magnet_uri: The Magnet URI.
-            options: An instance of the [`Options`][aria2p.options.Options] class or a dictionary
+            options: An instance of the [`Options`][ceria.options.Options] class or a dictionary
                 containing aria2c options to create the download with.
             position: The position where to insert the new download in the queue. Start at 0 (top).
 
@@ -134,7 +134,7 @@ class API:
         Arguments:
             torrent_file_path: The path to the torrent file.
             uris: A list of URIs used for Web-seeding.
-            options: An instance of the [`Options`][aria2p.options.Options] class or a dictionary
+            options: An instance of the [`Options`][ceria.options.Options] class or a dictionary
                 containing aria2c options to create the download with.
             position: The position where to insert the new download in the queue. Start at 0 (top).
 
@@ -171,7 +171,7 @@ class API:
 
         Arguments:
             metalink_file_path: The path to the Metalink file.
-            options: An instance of the [`Options`][aria2p.options.Options] class or a dictionary
+            options: An instance of the [`Options`][ceria.options.Options] class or a dictionary
                 containing aria2c options to create the download with.
             position: The position where to insert the new download in the queue. Start at 0 (top).
 
@@ -229,7 +229,7 @@ class API:
         """
         Not implemented.
 
-        Search and return [`Download`][aria2p.downloads.Download] objects based on multiple patterns.
+        Search and return [`Download`][ceria.downloads.Download] objects based on multiple patterns.
 
         Arguments:
             patterns: The patterns used to filter the download list.
@@ -271,7 +271,7 @@ class API:
 
     def get_download(self, gid: str) -> Download:
         """
-        Get a [`Download`][aria2p.downloads.Download] object thanks to its GID.
+        Get a [`Download`][ceria.downloads.Download] object thanks to its GID.
 
         Arguments:
             gid: The GID of the download to get.
@@ -283,7 +283,7 @@ class API:
 
     def get_downloads(self, gids: List[str] = None) -> List[Download]:
         """
-        Get a list of [`Download`][aria2p.downloads.Download] object thanks to their GIDs.
+        Get a list of [`Download`][ceria.downloads.Download] object thanks to their GIDs.
 
         Arguments:
             gids: The GIDs of the downloads to get. If None, return all the downloads.
@@ -606,7 +606,7 @@ class API:
         """
         Purge completed, removed or failed downloads from the queue.
 
-        Deprecated. Use [`purge`][aria2p.api.API.purge] instead.
+        Deprecated. Use [`purge`][ceria.api.API.purge] instead.
 
         Returns:
             Success or failure of the operation.
@@ -644,7 +644,7 @@ class API:
         Set options for specific downloads.
 
         Arguments:
-            options: An instance of the [`Options`][aria2p.options.Options] class or a dictionary
+            options: An instance of the [`Options`][ceria.options.Options] class or a dictionary
                 containing aria2c options to create the download with.
             downloads: The list of downloads to set the options for.
 
@@ -667,7 +667,7 @@ class API:
         Set global options.
 
         Arguments:
-            options: An instance of the [`Options`][aria2p.options.Options] class or a dictionary
+            options: An instance of the [`Options`][ceria.options.Options] class or a dictionary
                 containing aria2c options to create the download with.
 
         Returns:
@@ -813,11 +813,11 @@ class API:
         """
         Start listening to aria2 notifications via WebSocket.
 
-        This method differs from [`Client.listen_to_notifications`][aria2p.client.Client.listen_to_notifications]
+        This method differs from [`Client.listen_to_notifications`][ceria.client.Client.listen_to_notifications]
         in that it expects callbacks accepting two arguments, `api` and `gid`, instead of only `gid`.
-        Accepting `api` allows to use the high-level methods of the [`API`][aria2p.api.API] class.
+        Accepting `api` allows to use the high-level methods of the [`API`][ceria.api.API] class.
 
-        Stop listening to notifications with the [`API.stop_listening`][aria2p.api.API.stop_listening] method.
+        Stop listening to notifications with the [`API.stop_listening`][ceria.api.API.stop_listening] method.
 
         Arguments:
             threaded: Whether to start the listening loop in a thread or not (non-blocking or blocking).
@@ -859,7 +859,7 @@ class API:
 
         If the listening loop was threaded, this method will wait for the thread to finish.
         The time it takes for the thread to finish will depend on the timeout given while calling
-        [`listen_to_notifications`][aria2p.api.API.listen_to_notifications].
+        [`listen_to_notifications`][ceria.api.API.listen_to_notifications].
         """
         self.client.stop_listening()
         if self.listener:

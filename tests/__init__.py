@@ -1,4 +1,4 @@
-"""Tests suite for `aria2p`."""
+"""Tests suite for `ceria`."""
 
 from pathlib import Path
 

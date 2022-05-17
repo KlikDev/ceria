@@ -198,9 +198,9 @@ class File:
     @property
     def selected(self) -> bool:
         """
-        Return True if this file is selected by [`--select-file`][aria2p.options.Options.select_file] option.
+        Return True if this file is selected by [`--select-file`][ceria.options.Options.select_file] option.
 
-        If [`--select-file`][aria2p.options.Options.select_file] is not specified
+        If [`--select-file`][ceria.options.Options.select_file] is not specified
         or this is single-file torrent or not a torrent download at all, this value is always true.
         Otherwise false.
 
@@ -215,7 +215,7 @@ class File:
         Return a list of URIs for this file.
 
         The element type is the same struct
-        used in the [`client.get_uris()`][aria2p.client.Client.get_uris] method.
+        used in the [`client.get_uris()`][ceria.client.Client.get_uris] method.
 
         Returns:
             The list of URIs.
@@ -226,12 +226,12 @@ class File:
 class Download:
     """Class containing all information about a download, as retrieved with the client."""
 
-    def __init__(self, api: "aria2p.api.API", struct: dict) -> None:
+    def __init__(self, api: "ceria.api.API", struct: dict) -> None:
         """
         Initialize the object.
 
         Arguments:
-            api: The reference to an [`API`][aria2p.api.API] instance.
+            api: The reference to an [`API`][ceria.api.API] instance.
             struct: A dictionary Python object returned by the JSON-RPC client.
         """
         self.api = api
@@ -728,7 +728,7 @@ class Download:
         List of downloads generated as the result of this download.
 
         Returns:
-            A list of instances of [`Download`][aria2p.downloads.Download].
+            A list of instances of [`Download`][ceria.downloads.Download].
         """
         if self._followed_by is None:
             result = []
@@ -761,7 +761,7 @@ class Download:
         Return the download this download is following.
 
         Returns:
-            An instance of [`Download`][aria2p.downloads.Download].
+            An instance of [`Download`][ceria.downloads.Download].
         """
         if not self._following:
             following_id = self.following_id
@@ -796,7 +796,7 @@ class Download:
         Parent download.
 
         Returns:
-            An instance of [`Download`][aria2p.downloads.Download].
+            An instance of [`Download`][ceria.downloads.Download].
         """
         if not self._belongs_to:
             belongs_to_id = self.belongs_to_id
@@ -843,7 +843,7 @@ class Download:
         BitTorrent only.
 
         Returns:
-            A [BitTorrent][aria2p.downloads.BitTorrent] instance or `None`.
+            A [BitTorrent][ceria.downloads.BitTorrent] instance or `None`.
         """
         if not self._bittorrent and "bittorrent" in self._struct:
             self._bittorrent = BitTorrent(self._struct.get("bittorrent", {}))
@@ -930,7 +930,7 @@ class Download:
         Return the Estimated Time of Arrival as a string.
 
         Arguments:
-            precision: The precision to use, see [aria2p.utils.human_readable_timedelta].
+            precision: The precision to use, see [ceria.utils.human_readable_timedelta].
 
         Returns:
             The Estimated Time of Arrival as a string.

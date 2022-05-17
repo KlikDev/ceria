@@ -46,8 +46,8 @@ def call(api: API, method: str, params: Union[str, List[str]]) -> int:
     real_method = get_method(method)
 
     if real_method is None:
-        print(f"aria2p: call: Unknown method {method}.", file=sys.stderr)
-        print("  Run 'aria2p call listmethods' to list the available methods.", file=sys.stderr)
+        print(f"ceria: call: Unknown method {method}.", file=sys.stderr)
+        print("  Run 'ceria call listmethods' to list the available methods.", file=sys.stderr)
         return 1
 
     call_params: List[Any]

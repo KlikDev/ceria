@@ -49,7 +49,7 @@ def test_show_help(capsys):
     with pytest.raises(SystemExit):
         main(["-h"])
     captured = capsys.readouterr()
-    assert "aria2p" in captured.out
+    assert "ceria" in captured.out
 
 
 def test_main_returns_2_when_no_remote_running(port):
@@ -61,7 +61,7 @@ def test_parser_error_when_gids_and_all_option(capsys):
         main(["pause", "-a", "0000000000000001"])
         assert e.value.code == 2
     lines = err_lines(capsys)
-    assert lines[0].startswith("usage: aria2p pause")
+    assert lines[0].startswith("usage: ceria pause")
     assert lines[1].endswith("-a/--all: not allowed with arguments gids")
 
 
@@ -71,7 +71,7 @@ def test_parser_error_when_no_gid_and_no_all_option(capsys):
             main([alias])
             assert e.value.code == 2
         lines = err_lines(capsys)
-        assert lines[0].startswith("usage: aria2p " + command)
+        assert lines[0].startswith("usage: ceria " + command)
         assert lines[1].endswith("the following arguments are required: gids or --all")
 
     for command, aliases in [
@@ -88,7 +88,7 @@ def test_no_interface_deps_print_error(server, monkeypatch, capsys):
     monkeypatch.setattr(top, "Interface", None)
     main(["-p", str(server.port)])
     line = first_err_line(capsys)
-    assert "aria2p[tui]" in line
+    assert "ceria[tui]" in line
 
 
 def test_main_show_subcommand(server, capsys):
@@ -112,8 +112,8 @@ def test_show_subcommand(tmp_path, port, capsys):
 def test_call_subcommand(server, capsys):
     assert call(server.api, "wrongMethod", []) == 1
     assert (
-        capsys.readouterr().err == "aria2p: call: Unknown method wrongMethod.\n"
-        "  Run 'aria2p call listmethods' to list the available methods.\n"
+        capsys.readouterr().err == "ceria: call: Unknown method wrongMethod.\n"
+        "  Run 'ceria call listmethods' to list the available methods.\n"
     )
 
 

@@ -3,11 +3,11 @@
 # You might be tempted to import things from `__main__` later,
 # but that will cause problems: the code will get executed twice:
 #
-# - When you run `python -m aria2p` python will execute
+# - When you run `python -m ceria` python will execute
 #   `__main__.py` as a script. That means there won't be any
-#   `aria2p.__main__` in `sys.modules`.
+#   `ceria.__main__` in `sys.modules`.
 # - When you import `__main__` it will get executed again (as a module) because
-#   there's no `aria2p.__main__` in `sys.modules`.
+#   there's no `ceria.__main__` in `sys.modules`.
 
 """Module that contains the command line application."""
 
@@ -96,7 +96,7 @@ def get_parser() -> argparse.ArgumentParser:
     """
     usage = "%(prog)s [GLOBAL_OPTS...] COMMAND [COMMAND_OPTS...]"  # noqa: WPS323 (%-formatting)
     description = "Command-line tool and Python library to interact with an `aria2c` daemon process through JSON-RPC."
-    parser = argparse.ArgumentParser(add_help=False, usage=usage, description=description, prog="aria2p")
+    parser = argparse.ArgumentParser(add_help=False, usage=usage, description=description, prog="ceria")
 
     main_help = "Show this help message and exit. Commands also accept the -h/--help option."
     subcommand_help = "Show this help message and exit."
@@ -152,7 +152,7 @@ def get_parser() -> argparse.ArgumentParser:
     )
 
     # ========= SUBPARSERS ========= #
-    subparsers = parser.add_subparsers(dest="subcommand", title="Commands", metavar="", prog="aria2p")
+    subparsers = parser.add_subparsers(dest="subcommand", title="Commands", metavar="", prog="ceria")
 
     def subparser(command: str, text: str, **kwargs) -> argparse.ArgumentParser:  # noqa: WPS430 (nested function)
         sub = subparsers.add_parser(command, add_help=False, help=text, description=text, **kwargs)
@@ -282,8 +282,8 @@ def get_parser() -> argparse.ArgumentParser:
         nargs="*",
         help="The types of notifications to process: "
         "start, pause, stop, error, complete or btcomplete. "
-        "Example: aria2p listen error btcomplete. "
-        "Useful if you want to spawn multiple specialized aria2p listener, "
+        "Example: ceria listen error btcomplete. "
+        "Useful if you want to spawn multiple specialized ceria listener, "
         "for example one for each type of notification, "
         "but still want to use only one callback file.",
     )

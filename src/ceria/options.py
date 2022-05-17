@@ -26,7 +26,7 @@ class Options:
     """
     This class holds information retrieved with the `get_option` or `get_global_option` methods of the client.
 
-    Instances are given a reference to an [`API`][aria2p.api.API] instance to be able to change their values both
+    Instances are given a reference to an [`API`][ceria.api.API] instance to be able to change their values both
     locally and remotely, by using the API client and calling remote methods to change options.
 
     The options are available with the same names, using underscores instead of dashes, except for "continue"
@@ -34,14 +34,14 @@ class Options:
     "max-concurrent-downloads" is used like `options.max_concurrent_downloads = 5`.
     """
 
-    def __init__(self, api: "aria2p.api.API", struct: dict, download: "aria2p.downloads.Download" = None):
+    def __init__(self, api: "ceria.api.API", struct: dict, download: "ceria.downloads.Download" = None):
         """
         Initialize the object.
 
         Arguments:
-            api: The reference to an [`API`][aria2p.api.API] instance.
+            api: The reference to an [`API`][ceria.api.API] instance.
             struct: A dictionary Python object returned by the JSON-RPC client.
-            download: An optional [`Download`][aria2p.downloads.Download] object
+            download: An optional [`Download`][ceria.downloads.Download] object
                 to inform about the owner, or None to tell they are global options.
         """
         self.api = api

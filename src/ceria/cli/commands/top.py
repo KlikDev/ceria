@@ -22,7 +22,7 @@ def top(api: API) -> int:
     """
     if Interface is None:
         print(
-            "The top-interface dependencies are not installed. Try running `pip install aria2p[tui]` to install them.",
+            "The top-interface dependencies are not installed. Try running `pip install ceria[tui]` to install them.",
             file=sys.stderr,
         )
         return 1

@@ -1,8 +1,8 @@
-site_name: "aria2p"
+site_name: "ceria"
 site_description: "Command-line tool and Python library to interact with an aria2c daemon process through JSON-RPC."
-site_url: "https://pawamoy.github.io/aria2p"
-repo_url: "https://github.com/pawamoy/aria2p"
-repo_name: "pawamoy/aria2p"
+site_url: "https://pawamoy.github.io/ceria"
+repo_url: "https://github.com/pawamoy/ceria"
+repo_name: "pawamoy/ceria"
 
 nav:
 - Home:
@@ -78,7 +78,7 @@ plugins:
     #     rendering:
     #       show_submodules: no
     watch:
-    - src/aria2p
+    - src/ceria
 
 extra:
   social:

@@ -56,7 +56,7 @@ def main(args: Optional[List[str]] = None) -> int:
     """
     Run the main program.
 
-    This function is executed when you type `aria2p` or `python -m aria2p`.
+    This function is executed when you type `ceria` or `python -m ceria`.
 
     Arguments:
         args: Arguments passed from the command line.
@@ -74,7 +74,7 @@ def main(args: Optional[List[str]] = None) -> int:
     if log_path:
         log_path = Path(log_path)
         if log_path.is_dir():
-            log_path = log_path / "aria2p-{time}.log"
+            log_path = log_path / "ceria-{time}.log"
         enable_logger(sink=log_path, level=log_level or "WARNING")
     elif log_level:
         enable_logger(sink=sys.stderr, level=log_level)

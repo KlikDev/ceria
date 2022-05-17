@@ -165,13 +165,13 @@ def bool_to_str(value) -> Any:
 
 def get_version() -> str:
     """
-    Return the current `aria2p` version.
+    Return the current `ceria` version.
 
     Returns:
-        The current `aria2p` version.
+        The current `ceria` version.
     """
     try:
-        distribution = pkg_resources.get_distribution("aria2p")
+        distribution = pkg_resources.get_distribution("ceria")
     except pkg_resources.DistributionNotFound:
         return "0.0.0"
     return distribution.version
@@ -241,7 +241,7 @@ def load_configuration() -> Dict[str, Any]:
     config_dict["DEFAULT"] = toml.loads(default_config)
 
     # Check for configuration file
-    config_file_path = Path(user_config_dir("aria2p")) / "config.toml"
+    config_file_path = Path(user_config_dir("ceria")) / "config.toml"
 
     if config_file_path.exists():
         try:
