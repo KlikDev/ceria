@@ -3,7 +3,7 @@
 -->
 
 # Credits
-These projects were used to build `aria2p`. **Thank you!**
+These projects were used to build `ceria`. **Thank you!**
 
 [`python`](https://www.python.org/) |
 [`poetry`](https://poetry.eustace.io/) |

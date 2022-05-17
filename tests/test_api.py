@@ -5,7 +5,7 @@ import time
 
 import pytest
 
-from aria2p import API, Client, ClientException, Download
+from ceria import API, Client, ClientException, Download
 
 from . import BUNSENLABS_MAGNET, BUNSENLABS_TORRENT, CONFIGS_DIR, DEBIAN_METALINK, INPUT_FILES, XUBUNTU_MIRRORS
 from .conftest import Aria2Server

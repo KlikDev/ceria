@@ -7,22 +7,22 @@ from typing import List, Optional
 import requests
 from loguru import logger
 
-from aria2p import enable_logger
-from aria2p.api import API
-from aria2p.cli.commands.add import add
-from aria2p.cli.commands.add_magnet import add_magnets
-from aria2p.cli.commands.add_metalink import add_metalinks
-from aria2p.cli.commands.add_torrent import add_torrents
-from aria2p.cli.commands.call import call
-from aria2p.cli.commands.listen import listen
-from aria2p.cli.commands.pause import pause
-from aria2p.cli.commands.purge import purge
-from aria2p.cli.commands.remove import remove
-from aria2p.cli.commands.resume import resume
-from aria2p.cli.commands.show import show
-from aria2p.cli.commands.top import top
-from aria2p.cli.parser import check_args, get_parser
-from aria2p.client import Client, ClientException
+from ceria import enable_logger
+from ceria.api import API
+from ceria.cli.commands.add import add
+from ceria.cli.commands.add_magnet import add_magnets
+from ceria.cli.commands.add_metalink import add_metalinks
+from ceria.cli.commands.add_torrent import add_torrents
+from ceria.cli.commands.call import call
+from ceria.cli.commands.listen import listen
+from ceria.cli.commands.pause import pause
+from ceria.cli.commands.purge import purge
+from ceria.cli.commands.remove import remove
+from ceria.cli.commands.resume import resume
+from ceria.cli.commands.show import show
+from ceria.cli.commands.top import top
+from ceria.cli.parser import check_args, get_parser
+from ceria.client import Client, ClientException
 
 commands = {
     None: top,  # default command
@@ -103,7 +103,7 @@ def main(args: Optional[List[str]] = None) -> int:
         print(file=sys.stderr)
         print("Please make sure that an instance of aria2c is running with RPC mode enabled,", file=sys.stderr)
         print("and that you have provided the right host, port and secret token.", file=sys.stderr)
-        print("More information at https://pawamoy.github.io/aria2p.", file=sys.stderr)
+        print("More information at https://pawamoy.github.io/ceria.", file=sys.stderr)
         return 2
 
     subcommand = kwargs.pop("subcommand")

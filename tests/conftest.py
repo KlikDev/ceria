@@ -11,7 +11,7 @@ from pathlib import Path
 import pytest
 import requests
 
-from aria2p import API, Client, enable_logger
+from ceria import API, Client, enable_logger
 
 from . import CONFIGS_DIR, SESSIONS_DIR
 

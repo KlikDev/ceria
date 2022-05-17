@@ -2,7 +2,7 @@
 
 import pytest
 
-from aria2p import Stats
+from ceria import Stats
 
 
 @pytest.fixture(scope="module")

@@ -5,19 +5,19 @@ import time
 
 import pytest
 
-from aria2p.cli.commands import top
-from aria2p.cli.commands.add_magnet import add_magnets
-from aria2p.cli.commands.add_metalink import add_metalinks
-from aria2p.cli.commands.add_torrent import add_torrents
-from aria2p.cli.commands.call import call
-from aria2p.cli.commands.listen import listen
-from aria2p.cli.commands.pause import pause
-from aria2p.cli.commands.purge import purge
-from aria2p.cli.commands.remove import remove
-from aria2p.cli.commands.resume import resume
-from aria2p.cli.commands.show import show
-from aria2p.cli.main import main
-from aria2p.cli.parser import get_parser
+from ceria.cli.commands import top
+from ceria.cli.commands.add_magnet import add_magnets
+from ceria.cli.commands.add_metalink import add_metalinks
+from ceria.cli.commands.add_torrent import add_torrents
+from ceria.cli.commands.call import call
+from ceria.cli.commands.listen import listen
+from ceria.cli.commands.pause import pause
+from ceria.cli.commands.purge import purge
+from ceria.cli.commands.remove import remove
+from ceria.cli.commands.resume import resume
+from ceria.cli.commands.show import show
+from ceria.cli.main import main
+from ceria.cli.parser import get_parser
 
 from . import BUNSENLABS_MAGNET, TESTS_DATA_DIR
 from .conftest import Aria2Server

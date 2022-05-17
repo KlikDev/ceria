@@ -13,7 +13,7 @@
 
 import argparse
 
-from aria2p.client import DEFAULT_HOST, DEFAULT_PORT, DEFAULT_TIMEOUT
+from ceria.client import DEFAULT_HOST, DEFAULT_PORT, DEFAULT_TIMEOUT
 
 
 def check_args(parser: argparse.ArgumentParser, opts: argparse.Namespace) -> None:  # noqa: WPS231 (complex)

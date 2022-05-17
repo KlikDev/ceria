@@ -4,8 +4,8 @@ import json
 import sys
 from typing import Any, List, Optional, Union
 
-from aria2p.api import API
-from aria2p.client import Client
+from ceria.api import API
+from ceria.client import Client
 
 
 def get_method(name: str) -> Optional[str]:

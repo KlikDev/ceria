@@ -4,7 +4,7 @@ from datetime import timedelta
 
 import pytest
 
-from aria2p.utils import bool_or_value, bool_to_str, human_readable_bytes, human_readable_timedelta
+from ceria.utils import bool_or_value, bool_to_str, human_readable_bytes, human_readable_timedelta
 
 
 @pytest.mark.parametrize(

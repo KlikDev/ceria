@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from aria2p import API, BitTorrent, ClientException, Download, File
+from ceria import API, BitTorrent, ClientException, Download, File
 
 from .conftest import Aria2Server
 

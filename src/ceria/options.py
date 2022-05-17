@@ -8,8 +8,8 @@ This module defines the Options class, which holds information retrieved with th
 from copy import deepcopy
 from typing import Callable, List, Union
 
-import aria2p
-from aria2p.utils import bool_or_value, bool_to_str
+import ceria
+from ceria.utils import bool_or_value, bool_to_str
 
 try:
     from typing import GenericMeta  # type: ignore

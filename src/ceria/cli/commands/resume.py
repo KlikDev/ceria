@@ -3,8 +3,8 @@
 import sys
 from typing import List
 
-from aria2p.api import API
-from aria2p.client import ClientException
+from ceria.api import API
+from ceria.client import ClientException
 
 
 def resume(api: API, gids: List[str] = None, do_all: bool = False) -> int:

@@ -15,7 +15,7 @@ import toml
 from appdirs import user_config_dir
 from loguru import logger
 
-from aria2p.types import PathOrStr
+from ceria.types import PathOrStr
 
 
 class SignalHandler:

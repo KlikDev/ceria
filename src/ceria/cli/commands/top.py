@@ -2,10 +2,10 @@
 
 import sys
 
-from aria2p.api import API
+from ceria.api import API
 
 try:
-    from aria2p.interface import Interface
+    from ceria.interface import Interface
 except ImportError:
     Interface = None  # type: ignore  # noqa: WPS440 (variable overlap)
 

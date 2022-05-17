@@ -25,9 +25,9 @@ from asciimatics.event import KeyboardEvent, MouseEvent
 from asciimatics.screen import ManagedScreen, Screen
 from loguru import logger
 
-from aria2p.api import API
-from aria2p.downloads import Download
-from aria2p.utils import get_version, load_configuration
+from ceria.api import API
+from ceria.downloads import Download
+from ceria.utils import get_version, load_configuration
 
 configs = load_configuration()
 
@@ -978,7 +978,7 @@ class Interface:
     def print_help(self):
         version = get_version()
         lines = [
-            f"aria2p {version} — (C) 2018-2020 Timothée Mazzucotelli and contributors",
+            f"ceria {version} — (C) 2018-2020 Timothée Mazzucotelli and contributors",
             "Released under the ISC license.",
             "",
         ]

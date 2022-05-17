@@ -10,7 +10,7 @@ import pytest
 from asciimatics.event import KeyboardEvent, MouseEvent
 from asciimatics.screen import Screen
 
-from aria2p import interface as tui
+from ceria import interface as tui
 
 from . import TESTS_DATA_DIR
 from .conftest import Aria2Server

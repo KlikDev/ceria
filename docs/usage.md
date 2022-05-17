@@ -66,7 +66,7 @@ def on_download_complete(api, gid):
         download.purge()
 ```
 
-You can now use this callbacks module with `aria2p listen -c ~/callbacks.py`.
+You can now use this callbacks module with `ceria listen -c ~/callbacks.py`.
 
 #### Process specific types of notifications
 
@@ -86,7 +86,7 @@ This is possible because the server sends the notifications to every client that
 #### Interruption
 
 To stop listening, send a SIGTERM or SIGINT signal to the process,
-for example by hitting Control-C if aria2p is running in the foreground.
+for example by hitting Control-C if ceria is running in the foreground.
 If a notification is currently being handled, it will finish before the listener is stopped.
 
 #### Timeout
@@ -100,7 +100,7 @@ ceria listen -c ~/callbacks.py -t 1
 
 ### Programmatically
 
-Both the [`API`](/reference/api/#aria2p.api.API.listen_to_notifications)
-and [`Client`](/reference/client/#aria2p.client.Client.listen_to_notifications) classes provide a method called
+Both the [`API`](/reference/api/#ceria.api.API.listen_to_notifications)
+and [`Client`](/reference/client/#ceria.client.Client.listen_to_notifications) classes provide a method called
 `listen_to_notifications`, and another one called `stop_listening`. Please check their respective documentation. 
 

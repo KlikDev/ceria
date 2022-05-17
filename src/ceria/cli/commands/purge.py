@@ -1,6 +1,6 @@
 """Command to purge downloads."""
 
-from aria2p.api import API
+from ceria.api import API
 
 
 def purge(api: API) -> int:

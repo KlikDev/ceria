@@ -13,11 +13,11 @@ from typing import Callable, Dict, List, Optional, Tuple
 
 from loguru import logger
 
-from aria2p.client import Client, ClientException
-from aria2p.downloads import Download
-from aria2p.options import Options
-from aria2p.stats import Stats
-from aria2p.types import OperationResult, OptionsType, PathOrStr
+from ceria.client import Client, ClientException
+from ceria.downloads import Download
+from ceria.options import Options
+from ceria.stats import Stats
+from ceria.types import OperationResult, OptionsType, PathOrStr
 
 InputFileContentsType = List[Tuple[List[str], Dict[str, str]]]
 
@@ -71,7 +71,7 @@ class API:
         path = Path(uri)
 
         # On Windows, path.exists() generates an OSError when path is an URI
-        # See https://github.com/pawamoy/aria2p/issues/41
+        # See https://github.com/pawamoy/ceria/issues/41
         try:
             path_exists = path.exists()
         except OSError:

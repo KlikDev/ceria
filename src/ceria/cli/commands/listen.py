@@ -5,8 +5,8 @@ from importlib import util as importlib_util
 from pathlib import Path
 from typing import List
 
-from aria2p.api import API
-from aria2p.types import PathOrStr
+from ceria.api import API
+from ceria.types import PathOrStr
 
 
 def listen(
@@ -37,7 +37,7 @@ def listen(
     if not event_types:
         event_types = ["start", "pause", "stop", "error", "complete", "btcomplete"]
 
-    spec = importlib_util.spec_from_file_location("aria2p_callbacks", callbacks_module)
+    spec = importlib_util.spec_from_file_location("ceria_callbacks", callbacks_module)
 
     if spec is None:
         print(f"ceria: Could not import module file {callbacks_module}", file=sys.stderr)

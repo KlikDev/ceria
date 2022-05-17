@@ -1,6 +1,6 @@
 """Tests for the `options` module."""
 
-from aria2p import API, Download, Options
+from ceria import API, Download, Options
 
 
 # Test general methods

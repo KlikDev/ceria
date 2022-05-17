@@ -3,7 +3,7 @@
 from pathlib import Path
 from typing import List, Tuple, Union
 
-import aria2p
+import ceria
 
 PathOrStr = Union[Path, str]
 OptionsType = Union["ceria.options.Options", dict]

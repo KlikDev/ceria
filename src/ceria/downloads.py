@@ -12,11 +12,11 @@ from typing import List, Optional
 
 from loguru import logger
 
-import aria2p
-from aria2p.client import ClientException
-from aria2p.options import Options
-from aria2p.types import PathOrStr
-from aria2p.utils import bool_or_value, human_readable_bytes, human_readable_timedelta
+import ceria
+from ceria.client import ClientException
+from ceria.options import Options
+from ceria.types import PathOrStr
+from ceria.utils import bool_or_value, human_readable_bytes, human_readable_timedelta
 
 
 class BitTorrent:

@@ -12,8 +12,8 @@ import requests
 import websocket
 from loguru import logger
 
-from aria2p.types import CallsType, Multicalls2Type
-from aria2p.utils import SignalHandler
+from ceria.types import CallsType, Multicalls2Type
+from ceria.utils import SignalHandler
 
 DEFAULT_ID = -1
 DEFAULT_HOST = "http://localhost"

@@ -32,7 +32,7 @@ make setup
 
 You now have the dependencies installed.
 
-You can run the application with `pdm run aria2p [ARGS...]`.
+You can run the application with `pdm run ceria [ARGS...]`.
 
 Run `make help` to see all the available actions!
 

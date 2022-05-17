@@ -3,8 +3,8 @@
 import sys
 from typing import List
 
-from aria2p.api import API
-from aria2p.utils import read_lines
+from ceria.api import API
+from ceria.utils import read_lines
 
 
 def add_magnets(

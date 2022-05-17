@@ -3,11 +3,11 @@ IMPORTANT: This file is generated from the template at 'scripts/templates/README
            Please update the template instead of this file.
 -->
 
-# aria2p
-[![ci](https://github.com/pawamoy/aria2p/workflows/ci/badge.svg)](https://github.com/pawamoy/aria2p/actions?query=workflow%3Aci)
-[![documentation](https://img.shields.io/badge/docs-mkdocs%20material-blue.svg?style=flat)](https://pawamoy.github.io/aria2p/)
-[![pypi version](https://img.shields.io/pypi/v/aria2p.svg)](https://pypi.org/project/aria2p/)
-[![Gitter](https://badges.gitter.im/aria2p/community.svg)](https://gitter.im/aria2p/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+# ceria
+[![ci](https://github.com/pawamoy/ceria/workflows/ci/badge.svg)](https://github.com/pawamoy/ceria/actions?query=workflow%3Aci)
+[![documentation](https://img.shields.io/badge/docs-mkdocs%20material-blue.svg?style=flat)](https://pawamoy.github.io/ceria/)
+[![pypi version](https://img.shields.io/pypi/v/ceria.svg)](https://pypi.org/project/ceria/)
+[![Gitter](https://badges.gitter.im/ceria/community.svg)](https://gitter.im/ceria/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![support](https://img.shields.io/badge/sponsor-or%20donate-blue.svg?style=flat)](#support)
 
 Command-line tool and Python library to interact with an [`aria2c`][1] daemon process through JSON-RPC.
@@ -19,21 +19,21 @@ To avoid confusion:
 - [*aria2*][1] is a lightweight multi-protocol & multi-source, cross platform download utility operated in command-line.
 It supports HTTP/HTTPS, FTP, SFTP, BitTorrent and Metalink.
 - `aria2c` is the name of the command-line executable provided by *aria2*. It can act as a daemon.
-- `aria2p` (`p` for Python) is a command-line client that can interact with an `aria2c` daemon.
+- `ceria` (`p` for Python) is a command-line client that can interact with an `aria2c` daemon.
   It is not an official client. There are other Python packages allowing you to interact with an `aria2c` daemon.
-  These other packages do not offer enough usability (in my opinion), this is why I'm developing `aria2p`.
+  These other packages do not offer enough usability (in my opinion), this is why I'm developing `ceria`.
 
 **Purpose**: `aria2c` can run in the foreground, for one-time downloads, or in the background, as a daemon.
-This is where `aria2p` intervenes: when an instance of `aria2c` is running in the background,
-`aria2p` will be able to communicate with it to add downloads to the queue, remove, pause or resume them, etc.
+This is where `ceria` intervenes: when an instance of `aria2c` is running in the background,
+`ceria` will be able to communicate with it to add downloads to the queue, remove, pause or resume them, etc.
 
-In order for `aria2p` to be able to communicate with the `aria2c` process, RPC mode must be enabled
+In order for `ceria` to be able to communicate with the `aria2c` process, RPC mode must be enabled
 with the `--enable-rpc` option of `aria2c`. RPC stands for [Remote Procedure Call][2].
-Although `aria2c` supports both JSON-RPC and XML-RPC protocols, `aria2p` **works with JSON only** (not XML).
+Although `aria2c` supports both JSON-RPC and XML-RPC protocols, `ceria` **works with JSON only** (not XML).
 More information about how to configure `aria2c` to run as a daemon with RPC mode enabled
 can be found in the [Configuration section][conf doc] of the documentation.
 
-[conf doc]: https://aria2p.readthedocs.io/en/latest/configuration.html
+[conf doc]: https://ceria.readthedocs.io/en/latest/configuration.html
 
 **Table of contents**
 
@@ -47,7 +47,7 @@ can be found in the [Configuration section][conf doc] of the documentation.
 
 ## Requirements
 
-`aria2p` requires Python 3.6 or above.
+`ceria` requires Python 3.6 or above.
 
 <details>
 <summary>To install Python 3.6, I recommend using <a href="https://github.com/pyenv/pyenv"><code>pyenv</code></a>.</summary>
@@ -95,19 +95,19 @@ pipx install --python python3.6 ceria[tui]
 ```
 
 The `tui` extra is needed for the interactive interface. If you don't need the interface (for example when you are
-writing a Python package with a dependency to aria2p), simply install `aria2p` without any extra.
+writing a Python package with a dependency to ceria), simply install `ceria` without any extra.
 
 ## Usage (as a library)
 
 **This library is still a work in progress. More examples will be added later.
-In the meantime, you can read the [Reference section](https://aria2p.readthedocs.io/en/latest/reference.html) on the official documentation.**
+In the meantime, you can read the [Reference section](https://ceria.readthedocs.io/en/latest/reference.html) on the official documentation.**
 
 ```python
-import aria2p
+import ceria
 
 # initialization, these are the default values
-aria2 = aria2p.API(
-    aria2p.Client(
+aria2 = ceria.API(
+    ceria.Client(
         host="http://localhost",
         port=6800,
         secret=""
@@ -132,7 +132,7 @@ download = aria2.add_magnet(magnet_uri)
 {{ main_usage }}
 ```
 
-Calling `aria2p` without any arguments will by default call the `top` command,
+Calling `ceria` without any arguments will by default call the `top` command,
 which is a console interactive interface.
 
 Commands:
@@ -170,7 +170,7 @@ The following are all equivalent:
 List all available methods.
 *This example uses [`jq`](https://github.com/stedolan/jq).*
 ```console
-$ aria2p call listmethods | jq
+$ ceria call listmethods | jq
 [
   "aria2.addUri",
   "aria2.addTorrent",
@@ -214,27 +214,27 @@ $ aria2p call listmethods | jq
 List the GIDs (identifiers) of all active downloads.
 *Note that we must give the parameters as a JSON string.*
 ```console
-$ aria2p call tellactive -J '[["gid"]]'
+$ ceria call tellactive -J '[["gid"]]'
 [{"gid": "b686cad55029d4df"}, {"gid": "4b39a1ad8fd94e26"}, {"gid": "9d331cc4b287e5df"}, {"gid": "8c9de0df753a5195"}]
 ```
 
 Pause a download using its GID.
 *Note that when a single string argument is required, it can be passed directly with `-P`.*
 ```console
-$ aria2p call pause -P b686cad55029d4df
+$ ceria call pause -P b686cad55029d4df
 "b686cad55029d4df"
 ```
 
 Add a download using magnet URIs.
 *This example uses `jq -r` to remove the quotation marks around the result.*
 ```console
-$ aria2p call adduri -J '[["magnet:?xt=urn:..."]]' | jq -r
+$ ceria call adduri -J '[["magnet:?xt=urn:..."]]' | jq -r
 4b39a1ad8fd94e26f
 ```
 
 Purge download results (remove completed downloads from the list).
 ```console
-$ aria2p call purge_download_result
+$ ceria call purge_download_result
 "OK"
 ```
 {%- endif %}
@@ -242,7 +242,7 @@ $ aria2p call purge_download_result
 
 ## Troubleshooting
 
-- Error outputs like below when using `aria2p` as a Python library:
+- Error outputs like below when using `ceria` as a Python library:
 
   ```
   requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=6800): Max retries exceeded with url: /jsonrpc (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1115b1908>: Failed to establish a new connection: [Errno 61] Connection refused',))

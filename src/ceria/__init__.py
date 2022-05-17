@@ -8,11 +8,11 @@ import sys
 
 from loguru import logger
 
-from aria2p.api import API
-from aria2p.client import Client, ClientException
-from aria2p.downloads import BitTorrent, Download, File
-from aria2p.options import Options
-from aria2p.stats import Stats
+from ceria.api import API
+from ceria.client import Client, ClientException
+from ceria.downloads import BitTorrent, Download, File
+from ceria.options import Options
+from ceria.stats import Stats
 
 logger.disable("ceria")
 

@@ -12,8 +12,8 @@ import pytest
 import requests
 from responses import mock as responses
 
-from aria2p import Client, ClientException
-from aria2p.client import JSONRPC_CODES, JSONRPC_PARSER_ERROR, Notification
+from ceria import Client, ClientException
+from ceria.client import JSONRPC_CODES, JSONRPC_PARSER_ERROR, Notification
 
 from . import BUNSENLABS_MAGNET, BUNSENLABS_TORRENT, CONFIGS_DIR, DEBIAN_METALINK, SESSIONS_DIR, XUBUNTU_MIRRORS
 from .conftest import Aria2Server

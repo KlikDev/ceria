@@ -5,7 +5,7 @@ from typing import List
 
 from loguru import logger
 
-from aria2p.api import API
+from ceria.api import API
 
 
 def add(

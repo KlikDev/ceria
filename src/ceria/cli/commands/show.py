@@ -1,6 +1,6 @@
 """Command to show downloads."""
 
-from aria2p.api import API
+from ceria.api import API
 
 
 def show(api: API) -> int:
